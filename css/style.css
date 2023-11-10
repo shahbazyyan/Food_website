@@ -183,12 +183,14 @@ a {
 .tabcontent {
     width: 850px;
     position: relative;
+    height: 590px;
 }
 
 .tabcontent img {
     width: 100%;
-    height: 100%;
+    height: 590px;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .tabcontent__descr {
@@ -456,9 +458,9 @@ a {
 }
 
 .menu .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 150px;
 }
 
 .menu .title {
@@ -479,12 +481,20 @@ a {
     box-shadow: 0 4px 25px rgba(0, 0, 0, .25);
     font-size: 16px;
     font-weight: 300;
+    overflow: hidden;
+    
 }
 
 .menu__item img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    overflow: hidden;
+}
+
+.menu__item img:hover {
+  transform: scale(1.2);
+  transition: 2s;
+  overflow: hidden;
 }
 
 .menu__item-subtitle {
@@ -735,4 +745,14 @@ a {
     to {
         opacity: 1;
     }
+}
+
+
+.offer__slider-inner {
+    cursor: grab;
+    user-select: none;
+}
+
+.offer__slider-inner:active {
+    cursor: grabbing;
 }
