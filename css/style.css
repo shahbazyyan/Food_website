@@ -604,8 +604,8 @@ a {
 .promotion__timer .timer__block {
     width: 102px;
     height: 120px;
-    background: #fff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    background: rgba(171, 255, 46, 0.4);
+    box-shadow: 0 4px 20px rgba(23, 23, 23, 0.25);
     font-size: 16px;
     font-weight: 300;
     text-align: center;
