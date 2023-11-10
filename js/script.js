@@ -97,4 +97,34 @@ function setClock (selector, endTime) {
 
 setClock(".timer", "2023-12-31 23:59:59");
 
+// OOP menu card 
+
+class MenuCard {
+  constructor (img,alt,title,descreption,price,parentSelector) {
+    this.img = img;
+    this.alt = alt;
+    this.title = title;
+    this.descreption = descreption;
+    this.price = price;
+    this.parent = document.querySelector(parentSelector);
+    this.transfer = 0.94;
+    this.changeToEur();
+  };
+
+  changeToEur() {
+    this.price = this.price * this.transfer;
+  };
+
+  render () {
+    const {img,alt,title,descreption,price,parent} = this;
+    const elem = document.createElement("div");
+    elem.classList.add("menu__item");
+    elem.innerHTML = `
+      <img src=${img} alt=${alt} />
+      <h1> ${title} </h1>
+    `;
+  }
+
+}
+
 });
