@@ -1,0 +1,27 @@
+{
+  "name": "food-website",
+  "version": "0.1.0",
+  "description": "food-project-by-dav",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahbazyyan/Food_website.git"
+  },
+  "keywords": [
+    "front-end",
+    "blog",
+    "food-blog"
+  ],
+  "author": "dav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahbazyyan/Food_website/issues"
+  },
+  "homepage": "https://github.com/shahbazyyan/Food_website#readme",
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}
