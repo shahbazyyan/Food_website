@@ -211,8 +211,6 @@ window.addEventListener("DOMContentLoaded", function () {
 		current.textContent = slideIndex;
 	}
 
-  console.log(slidesInner);
-
 	slidesInner.style.cssText = `
 		display: flex;
 		width: ${100 * slides.length}%;
@@ -343,6 +341,52 @@ window.addEventListener("DOMContentLoaded", function () {
 			dots[slideIndex - 1].style.opacity = 1;
 		});
 	});
+
+  //modal logic start
+
+  const modalTrigger = document.querySelectorAll("[data-modal]");
+  const modal = document.querySelector(".modal");
+  const modalCloseBtn = document.querySelector("[data-close]");
+
+  modalTrigger.forEach(item => item.addEventListener("click", openModal));
+  modalCloseBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if(e.target === modal) {
+      closeModal();
+    };
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && modal.matches(".show")) {
+      closeModal();
+    };
+  });
+
+  function showModalInScroll() {
+		if (window.scrollY >= 1000) {
+			openModal();
+			window.removeEventListener("scroll", showModalInScroll);
+		}
+		if (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
+			openModal();
+			window.removeEventListener("scroll", showModalInScroll);
+		}
+	}
+  
+  window.addEventListener("scroll", showModalInScroll);
+
+  function openModal () {
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+    document.body.style.overflow = "hidden";
+  };
+
+  function closeModal () {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+    document.body.removeAttribute("style");
+  }
 
   
   
