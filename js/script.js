@@ -133,60 +133,65 @@ window.addEventListener("DOMContentLoaded", function () {
     };
   };
 
-  new MenuCard(
-    "img/tabs/vegy.jpg",
-    "vegy",
-    "Menu Premium",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    2,
-    ".menu .container"
-  ).render();
+  asyncGetData("http://localhost:8888/menu")
+   .then( data => data.forEach(({img,altimg,title,descr,price}) => {
+    new MenuCard(img,altimg,title,descr,price, ".menu .container").render()
+   }));
 
-  new MenuCard(
-    "img/tabs/helthy.jpg",
-    "vegy",
-    "Menu Helthy",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    4,
-    ".menu .container"
-  ).render();
+  // new MenuCard(
+  //   "img/tabs/vegy.jpg",
+  //   "vegy",
+  //   "Menu Premium",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   2,
+  //   ".menu .container"
+  // ).render();
+
+  // new MenuCard(
+  //   "img/tabs/helthy.jpg",
+  //   "vegy",
+  //   "Menu Helthy",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   4,
+  //   ".menu .container"
+  // ).render();
 
 
-  new MenuCard(
-    "img/tabs/good.jpg",
-    "vegy",
-    "Menu Fitness",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    3,
-    ".menu .container"
-  ).render();
+  // new MenuCard(
+  //   "img/tabs/good.jpg",
+  //   "vegy",
+  //   "Menu Fitness",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   3,
+  //   ".menu .container"
+  // ).render();
 
-  new MenuCard(
-    "img/tabs/vegy.jpg",
-    "vegy",
-    "Menu Fitness",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    8,
-    ".menu .container"
-  ).render();
+  // new MenuCard(
+  //   "img/tabs/vegy.jpg",
+  //   "vegy",
+  //   "Menu Fitness",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   8,
+  //   ".menu .container"
+  // ).render();
 
-  new MenuCard(
-    "img/tabs/good.jpg",
-    "vegy",
-    "Menu Fitness",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    4,
-    ".menu .container"
-  ).render();
+  // new MenuCard(
+  //   "img/tabs/good.jpg",
+  //   "vegy",
+  //   "Menu Fitness",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   4,
+  //   ".menu .container"
+  // ).render();
 
-  new MenuCard(
-    "img/tabs/helthy.jpg",
-    "vegy",
-    "Menu Fitness",
-    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-    6,
-    ".menu .container"
-  ).render();
+  // new MenuCard(
+  //   "img/tabs/helthy.jpg",
+  //   "vegy",
+  //   "Menu Fitness",
+  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+  //   6,
+  //   ".menu .container"
+  // ).render();
 
   // slider logic start
 
@@ -566,6 +571,30 @@ window.addEventListener("DOMContentLoaded", function () {
 
   forms.forEach(form => postData(form));
 
+  async function asyncPostData (url, data) {
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=utf-8"
+      },
+      body: data
+    });
+
+    if(!request.ok) {
+      throw new Error()
+    }
+
+    return await request.json();
+  };
+
+  async function asyncGetData (url) {
+      const request = await fetch(url);
+      if(!request.ok) {
+        throw new Error()
+      };
+      return await request.json();
+  };
+
   function postData(form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -583,16 +612,10 @@ window.addEventListener("DOMContentLoaded", function () {
       }
 
       const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => data[key] = value);
+      const data = JSON.stringify(Object.fromEntries(formData.entries()));
 
-      fetch("server.php", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-      })
+     
+      asyncPostData("http://localhost:8888/requests", data)
         .then(() => {
           messagesModal(success);
         })
@@ -619,7 +642,7 @@ window.addEventListener("DOMContentLoaded", function () {
       // 	}
       // });
     });
-  }
+  };
 
   function messagesModal(message) {
     const prevModalDialog = document.querySelector(".modal__dialog");
@@ -643,7 +666,9 @@ window.addEventListener("DOMContentLoaded", function () {
       prevModalDialog.classList.remove("hide");
       closeModal();
     }, 2000);
-  }
+  };
 
+
+ 
 
 });
