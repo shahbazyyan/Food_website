@@ -10,19 +10,21 @@
     <header class="header">
         <div class="header__left-block">
             <div class="header__logo">
-                <img src="/img/logo.png" alt="logo">
+                <img src="./img/logo.png" alt="logo">
             </div>
             <nav class="header__links">
-                <a href="/" class="header__link">Home</a>
-                <a href="/" class="header__link">Info</a>
-                <a href="/" class="header__link">Menu</a>
-                <a href="/" class="header__link">Contact</a>
+                <a href="#home" class="header__link">Home</a>
+                <a href="#offers" class="header__link">Offers</a>
+                <a href="#calculator" class="header__link">Calculator</a>
+                <a href="#menu" class="header__link">Menu</a>
+                <a href="#contact" class="header__link">Contact</a>
             </nav>
         </div>
         <div class="header__right-block">
             <button data-modal class="btn btn_white">Contact to us</button>
         </div>
     </header>
+    <section id="home">
     <div class="sidepanel">
         <div class="sidepanel__text"><span>Social Media</span></div>
         <div class="sidepanel__divider"></div>
@@ -33,6 +35,7 @@
             <img src="icons/facebook.svg" alt="facebook">
         </a>
     </div>
+   
 
     <div class="preview">
         <div class="bgc_blue"></div>
@@ -75,9 +78,11 @@
             <div class="preview__life">Live full life!</div>
         </div>
     </div>
+</section>
 
     <div class="divider"></div>
 
+    <section id="offers">
     <div class="offer">
         <div class="bgc_y"></div>
         <div class="container">
@@ -139,7 +144,10 @@
 			</div>
 		</div>
 	</div>
+</section>
 
+
+ <section id="calculator">
     <div class="divider"></div>
 
     <div class="calculating">
@@ -187,10 +195,11 @@
             </div>
         </div>
     </div>
+</section>
 
     <div class="divider"></div>
 
-    <section class="menu">
+    <section id="menu">
         <h2 class="title">Our menu for the day</h2>
 
         <div class="menu__field">
@@ -250,6 +259,7 @@
         </div>
     </div>
 
+    <section id="contact">
     <footer class="footer">
         <div class="container">
             <div class="social">
@@ -268,6 +278,8 @@
         </div>
     </footer>
 
+</section>
+
     <div class="modal">
         <div class="modal__dialog">
             <div class="modal__content">
@@ -282,6 +294,6 @@
         </div>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/script.js"></script>
 </body>
 </html>

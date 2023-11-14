@@ -5,6 +5,21 @@
     margin: 0;
     padding: 0;
     font-family: Roboto, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 32px;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(94, 211, 94);
+    border-radius: 80px;
 }
 
 a {
@@ -66,8 +81,19 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
+    height: 100px;
     padding: 0 100px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease; 
+}
+
+#home {
+    margin-top: 150px;
 }
 
 .header__left-block {
