@@ -1,0 +1,29 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"targets": "> 0.25%, not dead",
+				"useBuiltIns": "usage",
+				"debug": true
+			}
+		]
+	],
+	"plugins": [
+		"@babel/plugin-transform-arrow-functions",
+		"@babel/plugin-transform-destructuring",
+		"@babel/plugin-transform-duplicate-keys",
+		"@babel/plugin-transform-for-of",
+		"@babel/plugin-transform-function-name",
+		"@babel/plugin-transform-parameters",
+		"@babel/plugin-transform-shorthand-properties",
+		"@babel/plugin-transform-spread",
+		"@babel/plugin-transform-sticky-regex",
+		[
+			"@babel/plugin-transform-template-literals",
+			{
+				"loose": true
+			}
+		]
+	]
+}
