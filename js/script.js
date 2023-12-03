@@ -133,65 +133,65 @@ window.addEventListener("DOMContentLoaded", function () {
     };
   };
 
-  asyncGetData("http://localhost:8888/menu")
-   .then( data => data.forEach(({img,altimg,title,descr,price}) => {
-    new MenuCard(img,altimg,title,descr,price, ".menu .container").render()
-   }));
+  // asyncGetData("http://localhost:8888/menu")
+  //  .then( data => data.forEach(({img,altimg,title,descr,price}) => {
+  //   new MenuCard(img,altimg,title,descr,price, ".menu .container").render()
+  //  }));
 
-  // new MenuCard(
-  //   "img/tabs/vegy.jpg",
-  //   "vegy",
-  //   "Menu Premium",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   2,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/vegy.jpg",
+    "vegy",
+    "Menu Premium",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    2,
+    ".menu .container"
+  ).render();
 
-  // new MenuCard(
-  //   "img/tabs/helthy.jpg",
-  //   "vegy",
-  //   "Menu Helthy",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   4,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/helthy.jpg",
+    "vegy",
+    "Menu Helthy",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    4,
+    ".menu .container"
+  ).render();
 
 
-  // new MenuCard(
-  //   "img/tabs/good.jpg",
-  //   "vegy",
-  //   "Menu Fitness",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   3,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/good.jpg",
+    "vegy",
+    "Menu Fitness",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    3,
+    ".menu .container"
+  ).render();
 
-  // new MenuCard(
-  //   "img/tabs/vegy.jpg",
-  //   "vegy",
-  //   "Menu Fitness",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   8,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/vegy.jpg",
+    "vegy",
+    "Menu Fitness",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    8,
+    ".menu .container"
+  ).render();
 
-  // new MenuCard(
-  //   "img/tabs/good.jpg",
-  //   "vegy",
-  //   "Menu Fitness",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   4,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/good.jpg",
+    "vegy",
+    "Menu Fitness",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    4,
+    ".menu .container"
+  ).render();
 
-  // new MenuCard(
-  //   "img/tabs/helthy.jpg",
-  //   "vegy",
-  //   "Menu Fitness",
-  //   "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
-  //   6,
-  //   ".menu .container"
-  // ).render();
+  new MenuCard(
+    "img/tabs/helthy.jpg",
+    "vegy",
+    "Menu Fitness",
+    "The Fitness menu is a new approach to cooking: more fresh vegetables and fruits. A product for active and healthy people. This is a completely new product with the best price and high quality!",
+    6,
+    ".menu .container"
+  ).render();
 
   // slider logic start
 
